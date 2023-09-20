@@ -1,6 +1,5 @@
 from pytube import YouTube
 from customtkinter import *
-from tkinter import ttk
 
 
 #Configurando janela
