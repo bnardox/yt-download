@@ -1,10 +1,11 @@
 from pytube import YouTube
 from customtkinter import *
-from time import sleep
+from tkinter import ttk
+
 
 #Configurando janela
 app = CTk()
-app .title("Download PY")
+app.title("Download PY")
 app.geometry("500x340")
 set_appearance_mode("Dark")
 set_default_color_theme("green")
