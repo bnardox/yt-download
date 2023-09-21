@@ -1,1 +1,1 @@
-aqui o porjeto vai ser explicado
+aqui o projeto vai ser explicado
