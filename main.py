@@ -1,8 +1,6 @@
 from pytube import YouTube
 from customtkinter import *
 from tkinter import filedialog
-import os 
-from pathlib import Path
 
 
 #Configurando janela
@@ -27,7 +25,7 @@ def download_video():
     link = text_box.get()
     yt = YouTube(link)
     wait_label = CTkLabel(master=app, text=f'Título: {yt.title}', width=10, height=25)
-    wait_label.place(relx=0.23, rely=0.65)
+    wait_label.place(relx=0.34, rely=0.65)
     video = yt.streams.get_highest_resolution()
     save_folder = rf"{select_folder}"
     video.download(save_folder)
@@ -37,7 +35,7 @@ def download_audio():
     link = text_box.get()
     yt = YouTube(link)
     wait_label = CTkLabel(master=app, text=f'Título: {yt.title}', width=10, height=25)
-    wait_label.place(relx=0.23, rely=0.65)
+    wait_label.place(relx=0.34, rely=0.65)
     audio = yt.streams.filter(only_audio=True).first()
     save_folder = rf"{select_folder}"
     audio.download(save_folder)
