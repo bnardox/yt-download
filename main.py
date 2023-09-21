@@ -1,6 +1,9 @@
 from pytube import YouTube
 from customtkinter import *
 from tkinter import filedialog
+import os 
+from pathlib import Path
+
 
 #Configurando janela
 app = CTk()
@@ -12,6 +15,7 @@ set_default_color_theme("green")
 
 #Função para escholher o diretorio que o arquivo vai ser salvo
 def chose_folder():
+    global select_folder
     select_folder = filedialog.askdirectory()
     if select_folder: #Se o diretorio exixstir
         global folder_label
@@ -23,18 +27,20 @@ def download_video():
     link = text_box.get()
     yt = YouTube(link)
     wait_label = CTkLabel(master=app, text=f'Título: {yt.title}', width=10, height=25)
-    wait_label.place(relx=0.23, rely=0.65)
+    wait_label.place(relx=0.21, rely=0.65)
     video = yt.streams.get_highest_resolution()
-    video.download()
+    save_folder = rf"{select_folder}"
+    video.download(save_folder)
 
 #função para baixar o audio
 def download_audio():
     link = text_box.get()
     yt = YouTube(link)
     wait_label = CTkLabel(master=app, text=f'Título: {yt.title}', width=10, height=25)
-    wait_label.place(relx=0.23, rely=0.65)
+    wait_label.place(relx=0.21, rely=0.65)
     audio = yt.streams.filter(only_audio=True).first()
-    audio.download()
+    save_folder = rf"{select_folder}"
+    audio.download(save_folder)
 
 
 
